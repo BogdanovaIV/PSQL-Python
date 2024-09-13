@@ -1,4 +1,14 @@
 image: gitpod/workspace-postgres
- - name: chinook
-   port: 5432
-   onOpen: ignore
+
+tasks:
+  - init: |
+      # Start PostgreSQL service
+      sudo service postgresql start
+      # Switch to the postgres user to create the chinook database
+      sudo -u postgres psql -c "CREATE DATABASE chinook;"
+      # Optionally, you can load any initial data or configurations here
+      echo "Chinook database created."
+
+ports:
+  - port: 5432
+    onOpen: ignore
