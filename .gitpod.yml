@@ -1,0 +1,4 @@
+image: gitpod/workspace-postgres
+ - name: chinook
+   port: 5432
+   onOpen: ignore
